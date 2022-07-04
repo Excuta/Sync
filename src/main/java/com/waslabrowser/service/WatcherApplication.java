@@ -1,6 +1,5 @@
 package com.waslabrowser.service;
 
-import co.elastic.apm.attach.ElasticApmAttacher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,12 +9,10 @@ import java.util.TimeZone;
 
 @Slf4j
 @SpringBootApplication
-// TODO(1): change app name
-public class ServiceApplication {
+public class WatcherApplication {
 
     public static void main(String[] args) {
-        ElasticApmAttacher.attach();
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(WatcherApplication.class, args);
     }
 
     @PostConstruct

@@ -11,29 +11,14 @@ import java.util.Date;
 @EntityListeners(AuditTimesEntityListener.class)
 public class AuditEntity {
 
-	@JsonIgnore
-	@Column(name = "created_by", insertable = true, updatable = false)
-	private String createdBy;
 
 	@JsonIgnore
 	@Column(name = "created_date", insertable = true, updatable = false)
 	private Date createdDate;
 
 	@JsonIgnore
-	@Column(name = "last_modified_by", insertable = false, updatable = true)
-	private String lastModifiedBy;
-
-	@JsonIgnore
 	@Column(name = "last_modified_date", insertable = false, updatable = true)
 	private Date lastModifiedDate;
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
 
 	public Date getCreatedDate() {
 		return createdDate;
@@ -41,14 +26,6 @@ public class AuditEntity {
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
-	}
-
-	public String getLastModifiedBy() {
-		return lastModifiedBy;
-	}
-
-	public void setLastModifiedBy(String lastModifiedBy) {
-		this.lastModifiedBy = lastModifiedBy;
 	}
 
 	public Date getLastModifiedDate() {

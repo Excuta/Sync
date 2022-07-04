@@ -1,27 +1,11 @@
-################### COPY FROM DEV-APPLICAIONT.YML FOR LOCAL RUN #########################
-Log:
-  entry:
-    aspect:
-      show-args: true
-segment:
-  writekey: ${SEGMENT_WRITE_KEY} #TODO generate source per env on segement
+
 spring:
   application:
-    name: changme #TODO change app name
-  liquibase:
-    change-log: classpath:db/db.master.xml
-    drop-first: false
-    enabled: true
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: ${JWKS_URI} #TODO jkws url for auth server
+    name: watcher
   datasource:
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
-
+    url: jdbc:postgresql://localhost:5432/watcher
+    username: postgres
+    password: admin1234
   jpa:
     hibernate:
       ddl-auto: update
@@ -30,8 +14,9 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher #fixes a bug might not be needed after dependency update
-application:
-  search:
-    pageSizeLimit: 100 #TODO change as needed
+twitter:
+  baseUrl: https://api.twitter.com/2/
+  token: AAAAAAAAAAAAAAAAAAAAAGe7CwEAAAAAE1KXMTzY0sDsD3gjU7o%2Bf1g%2B0Jk%3Da49vgJf4o2U7devf3v5I12yQWx3RxWBwdIRhlGPWvG7TwYG7tx
+  id: 1288618920
 swagger:
-  enabled: ${SWAGGER_ENABLED} #TODO only for dev
+  enabled: true
