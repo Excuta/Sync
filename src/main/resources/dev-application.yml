@@ -1,0 +1,39 @@
+##copy application.yml and add real values for dev, copy in application.yml for local run
+#
+#################### COPY FROM DEV-APPLICAIONT.YML FOR LOCAL RUN #########################
+#Log:
+#  entry:
+#    aspect:
+#      show-args: true
+#segment:
+#  writekey: ${SEGMENT_WRITE_KEY}
+#spring:
+#  application:
+#    name: changme #TODO real values for this and other place holders
+#  liquibase:
+#    change-log: classpath:db/db.master.xml
+#    drop-first: false
+#    enabled: true
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          jwk-set-uri: ${JWKS_URI}
+#  datasource:
+#    url: ${DATASOURCE_URL}
+#    username: ${DATASOURCE_USERNAME}
+#    password: ${DATASOURCE_PASSWORD}
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show_sql: true
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant-path-matcher #fixes a bug might not be needed after dependency update
+#application:
+#  search:
+#    pageSizeLimit: 100 #TODO change as needed
+#swagger:
+#  enabled: ${SWAGGER_ENABLED} #TODO only for dev
