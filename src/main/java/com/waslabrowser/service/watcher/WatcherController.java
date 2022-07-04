@@ -1,12 +1,11 @@
 package com.waslabrowser.service.watcher;
 
+import com.waslabrowser.service.common.response.PageResponseBody;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/watch")
@@ -18,14 +17,14 @@ public class WatcherController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Follower>> watch() {
-        List<Follower> followers = watchService.watch();
+    public ResponseEntity<PageResponseBody<Follower>> watch() {
+        PageResponseBody<Follower> followers = watchService.watch();
         return ResponseEntity.ok(followers);
     }
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Iterable<Follower>> get() {
-        Iterable<Follower> followers = watchService.getAll();
-        return ResponseEntity.ok(followers);
+    public ResponseEntity<PageResponseBody<Follower>> get() {
+        PageResponseBody<Follower> all = watchService.getAll();
+        return ResponseEntity.ok(all);
     }
 }
